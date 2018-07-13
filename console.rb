@@ -27,6 +27,12 @@ film3.save
 
 p Film.all
 
+Film.delete_all
+
+p Film.all
+
+
+
 
 
 # binding.pry

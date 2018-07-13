@@ -1,6 +1,9 @@
 require_relative("../db/sql_runner.rb")
 
-
+# CREATE - initialise and save methods
+# READ - Film.all
+# UPDATE - update method#
+# DELETE - delete single and all
 
 
 class Film
@@ -59,6 +62,11 @@ class Film
     values = [@f_id]
     SqlRunner.run(sql,values)
   end
+
+  def self.delete_all()
+    sql = 'DELETE FROM films'
+    SqlRunner.run(sql)
+  end  
 
   def update()
     sql = 'UPDATE films SET film_title = $1, film_price = $2 WHERE f_id = $3'
