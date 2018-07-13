@@ -1,4 +1,4 @@
-require_relative('./models/films')
+require_relative('./models/film')
 require( 'pry-byebug' )
 
 #check to see how the film price can be entered; e.g., 05.00, 5.00, 5.0 ect)
