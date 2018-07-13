@@ -21,5 +21,13 @@ film2.update
 film2.film_price = '11'
 film2.update
 
-binding.pry
-nil
+options3 = {'film_title' => 'Bite Mans Dog3', 'film_price' => '55' }
+film3 = Film.new(options3)
+film3.save
+
+p Film.all
+
+
+
+# binding.pry
+# nil

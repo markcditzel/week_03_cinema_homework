@@ -66,6 +66,20 @@ class Film
     SqlRunner.run(sql,values)
   end
 
+  #this should return all the information about a film (all columns selected) from the films tables
+  #this is a Class method
+  #it does not require any values as we are not specifying any particular rows/objects
+  #to call this function = Film.all
+  def self.all()
+    sql = 'SELECT * FROM films'
+    all_films = SqlRunner.run(sql) # an array of hashes
+    result = all_films.map {|film| Film.new (film)}
+    return result
+  end
+
+
+
+
 
 
 
