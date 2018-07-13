@@ -52,6 +52,14 @@ class Film
     SqlRunner.run(sql)
   end
 
+  # this deletes a specific object
+  def delete
+    sql = 'DELETE FROM films WHERE f_id = $1'
+    values = [@f_id]
+    SqlRunner.run(sql,values)
+  end
+
+
 
 
 
