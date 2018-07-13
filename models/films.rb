@@ -7,6 +7,7 @@ class Film
 
   #Add Attr settings here
   # we need to write to film_title and film_price when we create them in the console
+  attr_reader :film_title, :film_price
   attr_writer :film_title, :film_price
 
 # the iniialise Class method will take an array from the database when we request the primary key from the database
@@ -53,11 +54,18 @@ class Film
   end
 
   # this deletes a specific object
-  def delete
+  def delete()
     sql = 'DELETE FROM films WHERE f_id = $1'
     values = [@f_id]
     SqlRunner.run(sql,values)
   end
+
+  def update()
+    sql = 'UPDATE films SET film_title = $1, film_price = $2 WHERE f_id = $3'
+    values = [@film_title, @film_price, @f_id]
+    SqlRunner.run(sql,values)
+  end
+
 
 
 
