@@ -66,7 +66,7 @@ class Film
   def self.delete_all()
     sql = 'DELETE FROM films'
     SqlRunner.run(sql)
-  end  
+  end
 
   def update()
     sql = 'UPDATE films SET film_title = $1, film_price = $2 WHERE f_id = $3'

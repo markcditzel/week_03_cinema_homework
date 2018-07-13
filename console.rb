@@ -1,7 +1,11 @@
 require_relative('./models/film')
+require_relative('./models/customer')
+
 require( 'pry-byebug' )
 
-#check to see how the film price can be entered; e.g., 05.00, 5.00, 5.0 ect)
+#NB check to see how the film price can be entered; e.g., 05.00, 5.00, 5.0 ect)
+
+## CRUD Film ####
 
 Film.delete_all # this prevents accumulating entries of the same film whenever runnig console.
 
@@ -25,11 +29,18 @@ options3 = {'film_title' => 'Bite Mans Dog3', 'film_price' => '55' }
 film3 = Film.new(options3)
 film3.save
 
-p Film.all
+#p Film.all
 
-Film.delete_all
+### CRUD Customer ###
 
-p Film.all
+#NB you can input data directly
+customer1 = Customer.new({'cust_name' => 'George Doors', 'cust_funds' => '500'})
+customer1.save
+
+customer2 = Customer.new({'cust_name' => 'Bill Windows', 'cust_funds' => '100'})
+customer2.save
+
+
 
 
 
