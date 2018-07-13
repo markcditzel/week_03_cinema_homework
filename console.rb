@@ -42,7 +42,11 @@ customer1.save
 customer2 = Customer.new({'cust_name' => 'Bill Windows', 'cust_funds' => '100'})
 customer2.save
 
-customer1.delete
+#customer1.delete
+
+customer2.cust_name = 'Simon Vents'
+customer2.update
+
 
 
 

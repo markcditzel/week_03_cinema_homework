@@ -35,4 +35,10 @@ class Customer
     SqlRunner.run(sql, values)
   end
 
+  def update()
+    sql = 'UPDATE customers SET cust_name = $1, cust_funds = $2 WHERE c_id = $3'
+    values = [@cust_name, @cust_funds, @c_id]
+    SqlRunner.run(sql,values)
+  end
+
 end
