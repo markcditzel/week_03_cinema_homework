@@ -33,12 +33,16 @@ film3.save
 
 ### CRUD Customer ###
 
+Customer.delete_all
+
 #NB you can input data directly
 customer1 = Customer.new({'cust_name' => 'George Doors', 'cust_funds' => '500'})
 customer1.save
 
 customer2 = Customer.new({'cust_name' => 'Bill Windows', 'cust_funds' => '100'})
 customer2.save
+
+customer1.delete
 
 
 

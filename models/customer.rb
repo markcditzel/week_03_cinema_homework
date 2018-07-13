@@ -24,4 +24,15 @@ class Customer
     @c_id = customers['c_id'].to_i
   end
 
+  def self.delete_all # no values needed
+    sql = 'DELETE FROM customers'
+    SqlRunner.run(sql)
+  end
+
+  def delete() # values needed for specificity
+    sql = 'DELETE FROM customers WHERE c_id = $1'
+    values = [@c_id]
+    SqlRunner.run(sql, values)
+  end
+
 end
