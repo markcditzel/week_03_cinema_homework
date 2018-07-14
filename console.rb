@@ -47,12 +47,23 @@ customer2.save
 customer2.cust_name = 'Simon Vents'
 customer2.update
 
+film2.info
+
+#p Customer.all
+
+#p Film.all
+
+#p film3.info
+
+# Film.all
+#binding.pry
+# customer2.info
+#
+# film3.info
+
+p Customer.all
 
 
 
 
-
-
-
-# binding.pry
 # nil

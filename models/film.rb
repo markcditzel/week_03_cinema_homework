@@ -10,8 +10,9 @@ class Film
 
   #Add Attr settings here
   # we need to write to film_title and film_price when we create them in the console
-  attr_reader :film_title, :film_price
-  attr_writer :film_title, :film_price
+  #note that for the
+  attr_reader :f_id, :film_title, :film_price
+  attr_writer :f_id, :film_title, :film_price
 
 # the iniialise Class method will take an array from the database when we request the primary key from the database
 #this is as the databse returns an array of hases, which we then retrive a single hash containing the id key-associated values
@@ -48,49 +49,47 @@ class Film
     # the single hash object contains the entire row's data; so we need to extract just the f_id to assign it to the objects instance variable @f_id
   end
 
-  #delete all method Class method
-  #this acts on the Class object
-  def self.delete_all()
-    sql = 'DELETE FROM films'
-    # this does not require any values as we do not need to specify anyting specific about any particular instance of the class's objects
-    SqlRunner.run(sql)
-  end
-
-  # this deletes a specific object
-  def delete()
-    sql = 'DELETE FROM films WHERE f_id = $1'
-    values = [@f_id]
-    SqlRunner.run(sql,values)
-  end
-
-  def self.delete_all()
-    sql = 'DELETE FROM films'
-    SqlRunner.run(sql)
-  end
-
-  def update()
-    sql = 'UPDATE films SET film_title = $1, film_price = $2 WHERE f_id = $3'
-    values = [@film_title, @film_price, @f_id]
-    SqlRunner.run(sql,values)
-  end
-
-  #this should return all the information about a film (all columns selected) from the films tables
+  #this should return all the information about all films (all columns selected) from the films tables
   #this is a Class method
   #it does not require any values as we are not specifying any particular rows/objects
   #to call this function = Film.all
+  #it returns an array of hashes (multiple film hashes)
+  #we then mapp the array to instatntiate new instance objects of Film class
   def self.all()
-    sql = 'SELECT * FROM films'
+    sql = 'SELECT * FROM films;'
     all_films = SqlRunner.run(sql) # an array of hashes
     result = all_films.map {|film| Film.new (film)}
     return result
   end
 
+  def info()
+    sql = 'SELECT * FROM films WHERE f_id = $1;'
+    values = [@f_id]
+    film = SqlRunner.run(sql,values)
+    result = Film.new(film.first)
+    return result
+  end
 
+  def update()
+    sql = 'UPDATE films SET film_title = $1, film_price = $2 WHERE f_id = $3;'
+    values = [@film_title, @film_price, @f_id]
+    SqlRunner.run(sql,values)
+  end
 
+  # this deletes a specific object
+  def delete()
+    sql = 'DELETE FROM films WHERE f_id = $1;'
+    values = [@f_id]
+    SqlRunner.run(sql,values)
+  end
 
-
-
-
+  #delete all method Class method
+  #this acts on the Class object
+  def self.delete_all()
+    sql = 'DELETE FROM films;'
+    # this does not require any values as we do not need to specify anyting specific about any particular instance of the class's objects
+    SqlRunner.run(sql)
+  end
 
 
 end
