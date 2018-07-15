@@ -2,8 +2,8 @@ require_relative("../db/sql_runner.rb")
 
 class Ticket
 
-  attr_accessor :t_id, :fk_film_id, :fk_customer_id
-  attr_writer :t_id, :c_id, :f_id
+  attr_accessor :t_id, :fk_customer_id, :fk_film_id
+  attr_writer :c_id, :f_id
 
   def initialize(options)
     @t_id = options['t_id'].to_i if options ['t_id']
@@ -20,14 +20,15 @@ class Ticket
     @t_id = tickets['t_id'].to_i
   end
 
-## Following functions not yet tested
+
 
   def update
-    sql = 'UPDATE tickets SET (fk_customer_id, fk_film_id)
-    VALUES ($1, $2) WHERE t_id = $3'
+    sql = 'UPDATE tickets SET fk_customer_id = $1, fk_film_id = $2 WHERE t_id = $3'
     values = [@fk_customer_id, @fk_film_id, @t_id]
     SqlRunner.run(sql,values)
   end
+
+## Following functions not yet tested
 
   def film #
     sql ='SELECT films.*

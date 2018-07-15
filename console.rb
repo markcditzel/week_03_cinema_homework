@@ -58,6 +58,8 @@ ticket1 = Ticket.new({'fk_customer_id' => customer3.c_id, 'fk_film_id' => film3.
 ticket1.save
 #binding.pry
 
+ticket1.fk_customer_id = customer3.c_id
+ticket1.update
 
 
 
