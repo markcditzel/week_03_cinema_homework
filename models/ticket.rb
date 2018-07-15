@@ -31,19 +31,25 @@ class Ticket
   # Following functions not yet tested
   # return the film linked to this ticket; the ticket can only be for one film
   #NB you can use the FK for the film as a substitite for the PK in the SQL query
+  #NB we select all of the films columns so we can create a new instance of a Film throught he Film.new method
   def film
     sql ='SELECT films.*
-          FROM films
-          WHERE f_id = $1'
+    FROM films
+    WHERE f_id = $1'
     values = [@fk_film_id]
     film = SqlRunner.run(sql,values).first
     return Film.new(film)
   end
 
   def customer
-
-
+    sql = 'SELECT customers.*
+    FROM customers
+    WHERE c_id = $1'
+    values = [@fk_customer_id]
+    customer = SqlRunner.run(sql,values).first
+    return Customer.new(customer)
   end
+
 
   def self.all # no values required
     sql = 'SELECT * FROM tickets'
@@ -55,6 +61,7 @@ class Ticket
     sql = 'DELETE FROM tickets'
     SqlRunner.run(sql)
   end
+  
 
 
 

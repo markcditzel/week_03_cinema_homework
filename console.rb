@@ -61,7 +61,9 @@ ticket1.save
 ticket1.fk_customer_id = customer3.c_id
 ticket1.update
 
-p ticket1.film
+ticket1.film
+
+p ticket1.customer
 
 
 
