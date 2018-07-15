@@ -20,8 +20,6 @@ class Ticket
     @t_id = tickets['t_id'].to_i
   end
 
-
-
   def update
     sql = 'UPDATE tickets SET fk_customer_id = $1, fk_film_id = $2 WHERE t_id = $3'
     values = [@fk_customer_id, @fk_film_id, @t_id]
@@ -50,7 +48,6 @@ class Ticket
     return Customer.new(customer)
   end
 
-
   def self.all # no values required
     sql = 'SELECT * FROM tickets'
     results = SqlRunner.run(sql)
@@ -61,7 +58,13 @@ class Ticket
     sql = 'DELETE FROM tickets'
     SqlRunner.run(sql)
   end
-  
+
+  def delete
+    sql = 'DELETE FROM tickets WHERE t_id = $1'
+    values = [@t_id]
+    SqlRunner.run(sql,values)
+  end
+
 
 
 

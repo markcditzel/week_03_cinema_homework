@@ -69,6 +69,8 @@ Ticket.all
 
 Ticket.delete_all
 
+ticket1.delete
+
 
 
 # film2.info
