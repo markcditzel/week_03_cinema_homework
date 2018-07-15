@@ -28,13 +28,16 @@ class Ticket
     SqlRunner.run(sql,values)
   end
 
-## Following functions not yet tested
-
-  def film #
+  # Following functions not yet tested
+  # return the film linked to this ticket; the ticket can only be for one film
+  #NB you can use the FK for the film as a substitite for the PK in the SQL query
+  def film
     sql ='SELECT films.*
-      FROM films
-        INNER JOIN films'
-
+          FROM films
+          WHERE f_id = $1'
+    values = [@fk_film_id]
+    film = SqlRunner.run(sql,values).first
+    return Film.new(film)
   end
 
   def customer
