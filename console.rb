@@ -61,15 +61,17 @@ ticket1.save
 ticket1.fk_customer_id = customer3.c_id
 ticket1.update
 
-ticket1.film
+#ticket1.film
 
-ticket1.customer
+#ticket1.customer
 
-Ticket.all
+#Ticket.all
 
-Ticket.delete_all
+#Ticket.delete_all
 
-ticket1.delete
+#ticket1.delete
+
+p film3.customer
 
 
 

@@ -91,5 +91,18 @@ class Film
     SqlRunner.run(sql)
   end
 
+  # method to return which customers are viewing a particular film
+  def customer
+    sql = 'SELECT customers.*
+        FROM customers
+            INNER JOIN tickets
+              ON customers.c_id = tickets.fk_customer_id
+                WHERE fk_film_id = $1'
+    values = [@f_id]
+    customers = SqlRunner.run(sql,values)
+    result = customers.map{|customer| Customer.new(customer)}
+    return result
+  end
+
 
 end
