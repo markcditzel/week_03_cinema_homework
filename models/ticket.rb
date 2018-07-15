@@ -7,8 +7,8 @@ class Ticket
 
   def initialize(options)
     @t_id = options['t_id'].to_i if options ['t_id']
-    @fk_customer_id = options['c_id'].to_i
-    @fk_film_id = options['f_id'].to_i
+    @fk_customer_id = options['fk_customer_id'].to_i
+    @fk_film_id = options['fk_film_id'].to_i
   end
 
   def save()
@@ -20,6 +20,8 @@ class Ticket
     @t_id = tickets['t_id'].to_i
   end
 
+## Following functions not yet tested
+
   def update
     sql = 'UPDATE tickets SET (fk_customer_id, fk_film_id)
     VALUES ($1, $2) WHERE t_id = $3'
@@ -27,7 +29,15 @@ class Ticket
     SqlRunner.run(sql,values)
   end
 
-  def film
+  def film #
+    sql ='SELECT films.*
+      FROM films
+        INNER JOIN films'
+
+  end
+
+  def customer
+
 
   end
 
