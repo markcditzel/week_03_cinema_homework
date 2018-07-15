@@ -63,9 +63,11 @@ ticket1.update
 
 ticket1.film
 
-p ticket1.customer
+ticket1.customer
 
+Ticket.all
 
+Ticket.delete_all
 
 
 
