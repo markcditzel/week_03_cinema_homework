@@ -17,7 +17,7 @@ class Film
 # the iniialise Class method will take an array from the database when we request the primary key from the database
 #this is as the databse returns an array of hases, which we then retrive a single hash containing the id key-associated values
 #we use options as a holder for the input hash
-#we user input data to create a new instance object of the classe by feeding it a hash of all the data TO the object
+#we input data to create a new instance object of the classe by feeding it a hash of all the data TO the object
 #the instance object will also automatically receive a hash contianing the primary key FROM the database
   def initialize(options)
     # when the user creates the Film object we do not provide it wiht the id (aka the primary key)

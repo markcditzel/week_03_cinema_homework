@@ -1,5 +1,7 @@
 require_relative('./models/film')
 require_relative('./models/customer')
+require_relative('./models/ticket')
+
 
 require( 'pry-byebug' )
 
@@ -42,26 +44,40 @@ customer1.save
 customer2 = Customer.new({'cust_name' => 'Bill Windows', 'cust_funds' => '100'})
 customer2.save
 
-#customer1.delete
 
+#customer1.delete
 customer2.cust_name = 'Simon Vents'
 customer2.update
 
-film2.info
+customer3 = Customer.new({'cust_name' => 'Tom Gutters', 'cust_funds' => '1000'})
+customer3.save
 
-#p Customer.all
+#NB we use the preexisting c_id and f_id to be assigned to tp the FK values in ticket
 
-#p Film.all
-
-#p film3.info
-
-# Film.all
+ticket1 = Ticket.new({'fk_customer_id' => customer3.c_id, 'fk_film_id' => film3.f_id})
+ticket1.save
 #binding.pry
-# customer2.info
-#
-# film3.info
 
-p Customer.all
+
+
+
+
+
+# film2.info
+#
+# #p Customer.all
+#
+# #p Film.all
+#
+# #p film3.info
+#
+# # Film.all
+
+# # customer2.info
+# #
+# # film3.info
+#
+# p Customer.all
 
 
 

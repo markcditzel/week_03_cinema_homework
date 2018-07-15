@@ -28,10 +28,10 @@ CREATE TABLE customers (
 
 CREATE TABLE tickets (
   t_id SERIAL4 PRIMARY KEY,
-  customer_id INT4 REFERENCES customers(c_id) ON DELETE CASCADE,
+  fk_customer_id INT4 REFERENCES customers(c_id) ON DELETE CASCADE,
   -- notation for SQL means you state the table_name(column_name)
   -- these lines esatblish the links between PK and FK keys
   -- customer_id is the FK for customer(id)
-  film_id INT4 REFERENCES films(f_id) ON DELETE CASCADE
+  fk_film_id INT4 REFERENCES films(f_id) ON DELETE CASCADE
   -- film_id is the FK for the film(id)
 );
