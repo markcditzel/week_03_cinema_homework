@@ -71,5 +71,11 @@ class Customer
     return result
   end
 
+  #want to recover all film objects for customer and count them
+  #film method returns an array of film objects, so can use count
+  def tickets_purchased
+    return film().count
+  end
+
 
 end

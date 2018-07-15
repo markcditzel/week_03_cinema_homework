@@ -71,7 +71,9 @@ ticket1.update
 
 #ticket1.delete
 
-p film3.customer
+film3.customer
+
+p customer3.tickets_purchased
 
 
 
