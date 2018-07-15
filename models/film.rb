@@ -104,6 +104,9 @@ class Film
     return result
   end
 
+  def customers_watching
+    customer().count
+  end
 
 
 

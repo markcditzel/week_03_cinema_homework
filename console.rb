@@ -73,8 +73,9 @@ ticket1.update
 
 film3.customer
 
-p customer3.tickets_purchased
+customer3.tickets_purchased
 
+p film3.customers_watching
 
 
 # film2.info
