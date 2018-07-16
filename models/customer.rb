@@ -77,5 +77,18 @@ class Customer
     return film().count
   end
 
+  def purchase_ticket(ticket_object) # here we pass in the ticket object
+    return if @cust_funds < ticket_object.film.film_price # First we check the funds are available with return if. Next we apply the 'what is the ticket's film' method (.film). We then apply the .film_price getter method to get the associated film object's price
+    @cust_funds -= ticketprice # we then deduct the film price from the customers funds
+    update # to save the modified funds associated with the customer. NB how does it now it the Customer update method and not any other linked through???? 
+  end
+
+
+  def pay_for_ticket(ticket)
+      return if @funds < ticket.film.price
+      @funds -= ticket.film.price
+      update
+    end
+
 
 end
